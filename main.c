@@ -1,6 +1,6 @@
 #include <ncurses.h>
 
-#define TICKRATE 1000
+#define TICKRATE 130
 
 #define WORLD_WIDTH 50
 #define WORLD_HEIGHT 20
