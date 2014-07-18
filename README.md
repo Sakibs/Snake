@@ -1,4 +1,7 @@
-My adaptation of the popular snake game made the ncurses library in C for the terminal.
+Snake
+-----
+
+My adaptation of the popular snake game made using the ncurses library in C for Linux and Mac terminals.
 
 
 Version Log
@@ -20,7 +23,7 @@ v1.2
 - set head of snake to index 0
 - added collision detection for head to body
 - added game over functionality
-- added reset functionailty
+- added reset functionality
 - created window to display menu
 
 v1.1
