@@ -1,0 +1,9 @@
+## .gitignore file for Snake
+
+## For vim
+*~
+*.swp
+
+## For Snake
+*.o
+Snake

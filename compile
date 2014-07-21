@@ -1,1 +1,6 @@
-gcc -lcurses -o Snake main.c
+#!/bin/bash
+
+# Compile with gcc
+gcc -o Snake main.c -lcurses
+
+exit $?
