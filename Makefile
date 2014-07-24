@@ -3,7 +3,7 @@
 CFLAGS  := -Wall
 LDFLAGS  := -lcurses
 SOURCES := main.c
-OBJECTS :=$(SOURCES:.cpp=.o)
+OBJECTS :=$(SOURCES:.c=.o)
 EXECUTABLE := Snake
 
 all: $(SOURCES) $(EXECUTABLE)
