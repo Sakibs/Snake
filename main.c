@@ -1,5 +1,6 @@
 #include <ncurses.h>
 #include <stdlib.h>
+#include <time.h> // necessary to seed rand()
 
 #define TICKRATE 150
 
@@ -41,6 +42,9 @@ int check_ate_food(Snake *snakey, Food *byte);
 
 int main()
 {
+    // Randomize the seed
+    srand( (unsigned int)time(NULL) );
+
     WINDOW *snakey_world;
 	WINDOW *menu_win;
 	//hide the cursor, we don't want to see it	
