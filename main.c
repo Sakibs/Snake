@@ -1,4 +1,5 @@
 #include <ncurses.h>
+#include <stdlib.h>
 
 #define TICKRATE 150
 
@@ -31,11 +32,11 @@ typedef struct SnakeData {
 int check_collision(Snake *snakey);
 int setup_snakey(Snake* snakey, int begx, int begy);
 int update_snakey_pos(Snake *snakey, int direction);
-int grow_snakey(Snake *snakey);
+void grow_snakey(Snake *snakey);
 int update_screen(WINDOW *win, Snake *snakey, int direction, Food *byte);
 int update_menu(WINDOW* menu, int message);
 
-int set_food_coord(Snake *Snakey, Food *byte);
+void set_food_coord(Snake *Snakey, Food *byte);
 int check_ate_food(Snake *snakey, Food *byte);
 
 int main()
@@ -43,7 +44,7 @@ int main()
     WINDOW *snakey_world;
 	WINDOW *menu_win;
 	//hide the cursor, we don't want to see it	
-    int offsetx, offsety, menu_offsety, i, ch;
+    int offsetx, offsety, menu_offsety, ch;
 
     initscr();
 	noecho();
@@ -251,7 +252,7 @@ int update_snakey_pos(Snake *snakey, int direction){
 	return 0;
 }
 
-int grow_snakey(Snake* snakey){
+void grow_snakey(Snake* snakey){
 	if(snakey->cur_snakey_length < SNAKEY_MAX_LENGTH){
 		snakey->cur_snakey_length++;
 		
@@ -295,7 +296,7 @@ int update_menu(WINDOW *menu, int message){
 	return 0;
 }
 
-int set_food_coord(Snake *snakey, Food* byte){
+void set_food_coord(Snake *snakey, Food* byte){
 	int clear = 1;
 	int newx, newy;
 	/*	generate new coord for food, if it is intersecting with the coord of one of the 
@@ -329,3 +330,4 @@ int set_food_coord(Snake *snakey, Food* byte){
 	byte->x = newx;
 	byte->y = newy;
 }
+

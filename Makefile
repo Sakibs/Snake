@@ -1,17 +1,18 @@
-# makefile for Snake
+# makefile for tuningFork
 
-CC=gcc
-CFLAGS=
-LDFLAGS=-lcurses
+CFLAGS  := -Wall
+LDFLAGS  := -lcurses
+SOURCES := main.c
+OBJECTS :=$(SOURCES:.cpp=.o)
+EXECUTABLE := Snake
 
-all: Snake
+all: $(SOURCES) $(EXECUTABLE)
 
-Snake: main.o
-	$(CC) $(CFLAGS) main.o -o Snake $(LDFLAGS)
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $@ $(LDFLAGS)
 
-main.o:
-	$(CC) $(CFLAGS) -c main.c $(LDFLAGS)
-
+.cpp.o:
+	$(CC) $(CFLAGS) -c $< -o $@ $(LDFLAGS)
 
 clean:
-	rm -f *.o Snake *.stackdump
+	rm -f *.o $(EXECUTABLE) *.stackdump
