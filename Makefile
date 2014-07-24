@@ -1,4 +1,4 @@
-# makefile for tuningFork
+# makefile for Snake
 
 CFLAGS  := -Wall
 LDFLAGS  := -lcurses
